@@ -4,7 +4,7 @@ const traverse = require("@babel/traverse").default,
 
 module.exports = function transformCodeFn(sourceCode) {
   const ast = parse(sourceCode);
-  traverse.default(ast, {
+  traverse(ast, {
     enter: (path) => {
       if (path.isIdentifier({ name: "Function" })) {
         path.node.name = "global.MiniFunction";
