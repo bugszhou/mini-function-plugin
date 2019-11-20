@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/bugszhou/mini-function-plugin#readme",
   "dependencies": {
+    "@babel/parser": "^7.7.3",
+    "@babel/traverse": "^7.7.2",
+    "babel-generator": "^6.26.1",
     "escodegen": "^1.12.0",
     "esprima": "^4.0.1",
     "estraverse": "^4.3.0"

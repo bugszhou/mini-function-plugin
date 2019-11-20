@@ -1,21 +1,18 @@
-const esprima = require('esprima'),
-  estraverse = require('estraverse'),
-  escodegen = require('escodegen');
+const traverse = require("@babel/traverse").default,
+  generate = require("babel-generator").default,
+  parse = require("@babel/parser").parse;
 
 module.exports = function transformCodeFn(sourceCode) {
-  const ast = esprima.parseScript(sourceCode);
-  estraverse.traverse(ast, {
-    enter: (node) => {
-      if (node.type === 'Identifier' && node.name === 'Function') {
-        node.name = "global.MiniFunction";
+  const ast = parse(sourceCode);
+  traverse.default(ast, {
+    enter: (path) => {
+      if (path.isIdentifier({ name: "Function" })) {
+        path.node.name = "global.MiniFunction";
       }
     }
   });
-  const transformCode = escodegen.generate(ast, {
-    format: {
-      ...escodegen.FORMAT_MINIFY,
-      semicolons: true,
-    }
-  });
-  return transformCode;
+  return generate(ast, {
+    sourceMaps: true,
+    minified: process.env.NODE_ENV !== "development",
+  }).code;
 }
