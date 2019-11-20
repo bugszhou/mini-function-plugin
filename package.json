@@ -1,6 +1,6 @@
 {
   "name": "mini-function-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "修改小程序function",
   "main": "src/index.js",
   "scripts": {
