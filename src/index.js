@@ -10,6 +10,9 @@ class MiniFunctionPlugin {
         const { assets } = compilation || {};
 
         Object.keys(assets).forEach((pathurl) => {
+          if (pathurl === "commons/runtime.js") {
+            return false;
+          }
           if (/\.js$/.test(pathurl)) {
             if (assets[pathurl]._value) {
                 assets[pathurl]._value = transformCodeFn(assets[pathurl]._value);
