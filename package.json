@@ -1,0 +1,24 @@
+{
+  "name": "mini-function-plugin",
+  "version": "1.0.0",
+  "description": "修改小程序function",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bugszhou/mini-function-plugin.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bugszhou/mini-function-plugin/issues"
+  },
+  "homepage": "https://github.com/bugszhou/mini-function-plugin#readme",
+  "dependencies": {
+    "escodegen": "^1.12.0",
+    "esprima": "^4.0.1",
+    "estraverse": "^4.3.0"
+  }
+}
