@@ -7,7 +7,7 @@ module.exports = function transformCodeFn(sourceCode) {
   traverse(ast, {
     enter: (path) => {
       if (path.isIdentifier({ name: "Function" })) {
-        path.node.name = "global.MiniFunction";
+        path.node.name = "Function.MiniFunction";
       }
     }
   });
